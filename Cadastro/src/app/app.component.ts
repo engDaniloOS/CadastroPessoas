@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { Pessoa } from './dominio/pessoa.model';
 import { Router } from '@angular/router';
 import { Comum } from './comum/comum';
+import { stringify } from '@angular/core/src/util';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,8 @@ export class AppComponent implements OnInit{
   title = 'Cadastro';
   urlApi = 'http://localhost:5000/api/pessoa';
   dataFromApi: Array<Pessoa> = [];
+  listaArmazenada: Array<any> = [];
+  filtro: string = "";
   //#endregion
 
   //#region construtor
@@ -27,6 +30,15 @@ export class AppComponent implements OnInit{
   //#region funções
   ngOnInit(){
     this.doListar();
+  }
+
+  doFiltro(){
+    if (this.filtro)
+      this.dataFromApi = this.listaArmazenada.filter(
+                              p => p.nome.toLocaleLowerCase().includes(this.filtro.toLocaleLowerCase()));
+
+    else
+      this.dataFromApi = this.listaArmazenada;
   }
 
   hasData(){
@@ -55,7 +67,8 @@ export class AppComponent implements OnInit{
       resposta => { this.doLimpar();
                     const apiResultado = resposta.json();
                     apiResultado.forEach(item => {
-                    this.dataFromApi.push(item); }); },
+                    this.dataFromApi.push(item); })
+                    this.listaArmazenada = this.dataFromApi; },
 
       erro => Comum.trataErro(erro)
 

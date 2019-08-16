@@ -7,6 +7,7 @@
   <br/>
   <h4> Usuários Cadastrados</h4>
 
+  <input class="form-control row col-md-7" type="text"  placeholder="Filtro" (keyup)="doFiltro()" [(ngModel)]="filtro"><br/>
   <div *ngIf = 'hasData()' class="row col-md-7" style="max-height: 800px; overflow: hidden; overflow-y: scroll">
     <table class="table table-hover">
       <tbody>
