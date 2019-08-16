@@ -3,11 +3,12 @@
       {{ title }}
     </h4>
 </div>
+<h6 style="font-size: 11px">*Campos obrigatórios</h6>
 <div class="form-group col-md-7">
-  <label>Nome: </label>
+  <label>Nome*: </label>
   <input class="form-control" type="text"  placeholder="Nome" [(ngModel)]="pessoa.nome"><br/>
   
-  <label>CPF: </label>
+  <label>CPF*: </label>
   <input class="form-control" type="text" placeholder="CPF" [(ngModel)]="pessoa.cpf"><br/>
 
   <label>Data de Nascimento: </label>
@@ -22,7 +23,7 @@
   <label>Telefone: </label>
   <input class="form-control" type="text" placeholder="Telefone" [(ngModel)]="contato.telefone"><br/>
 
-  <label>CEP: </label>
+  <label>CEP*: </label>
   <input class="form-control" type="text" placeholder="CEP" [(ngModel)]="endereco.cep"><br/>
 
   <label>Logradouro: </label>

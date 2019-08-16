@@ -1,15 +1,11 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace Dominio.Models
 {
     public class Endereco : EntidadeBase
     {
-        [Required]
         public int Numero { get; set; }
-
-        [Required, StringLength(10)]
         public string CEP { get; set; }
 
         public string Logradouro { get; set; }
@@ -22,9 +18,10 @@ namespace Dominio.Models
         public void Valida()
         {
             var regex = new Regex("^[0-9]{8}$");
-            CEP = CEP.Replace("-", "").Replace(".", "");
 
-            if (!regex.IsMatch(CEP))
+            CEP = (CEP != null) ? CEP = CEP.Replace("-", "").Replace(".", "") : string.Empty;
+
+            if (CEP.Length != 8 || !regex.IsMatch(CEP))
                 throw new ArgumentException("CEP Inválido");
         }
     }

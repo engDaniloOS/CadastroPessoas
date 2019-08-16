@@ -57,6 +57,9 @@ namespace CadastroPessoas.Dominio.Servicos
         {
             try
             {
+                pessoa.Valida();
+                pessoa.Endereco.Valida();
+
                 if (!pessoaRepo.Exists(pessoa.Id))
                     throw new ArgumentException(pessoaNaoCadastrada);
 

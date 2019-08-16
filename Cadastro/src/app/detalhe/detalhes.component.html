@@ -3,12 +3,13 @@
     {{ title }}
   </h4>
 </div>
+<h6 style="font-size: 11px">*Campos obrigatórios</h6>
 <div class="form-group form-group col-md-7">
-  <label>Nome: </label>
-  <input class="form-control" type="text" placeholder="Nome" [(ngModel)]="pessoa.nome"><br/>
+  <label>Nome*: </label>
+  <input required class="form-control" type="text" placeholder="Nome" [(ngModel)]="pessoa.nome"><br/>
   
-  <label>CPF: </label>
-  <input class="form-control" type="text" placeholder="CPF" [(ngModel)]="pessoa.cpf"><br/>
+  <label>CPF*: </label>
+  <input ngModel required class="form-control" type="text" placeholder="CPF" [(ngModel)]="pessoa.cpf"><br/>
 
   <label>Data de Nascimento: </label>
   <input class="form-control" type="date" placeholder="Data de nascimento" [(ngModel)]="pessoa.dataNascimento"><br/>
@@ -22,14 +23,14 @@
   <label>Telefone: </label>
   <input class="form-control" type="text" placeholder="Telefone" [(ngModel)]="pessoa.contato.telefone"><br/>
 
-  <label>CEP: </label>
-  <input class="form-control" type="text" placeholder="CEP" [(ngModel)]="pessoa.endereco.cep"><br/>
+  <label>CEP*: </label>
+  <input required class="form-control" type="text" placeholder="CEP" [(ngModel)]="pessoa.endereco.cep"><br/>
 
   <label>Logradouro: </label>
   <input class="form-control" type="text" placeholder="Logradouro" [(ngModel)]="pessoa.endereco.logradouro"><br/>
 
   <label>Numero: </label>
-  <input class="form-control" type="number" placeholder="Numero" [(ngModel)]="pessoa.endereco.numero"><br/>
+  <input required class="form-control" type="number" placeholder="Numero" [(ngModel)]="pessoa.endereco.numero"><br/>
 
   <label>Complemento: </label>
   <input class="form-control" type="text" placeholder="Complemento" [(ngModel)]="pessoa.endereco.complemento"><br/>

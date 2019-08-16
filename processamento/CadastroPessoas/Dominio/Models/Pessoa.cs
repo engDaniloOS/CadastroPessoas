@@ -1,17 +1,12 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace Dominio.Models
 {
     public class Pessoa : EntidadeBase
     {
-        [Required, StringLength(255)]
         public string Nome { get; set; }
-
-        [Required, StringLength(20)]
         public string CPF { get; set; }
-
         public DateTime DataNascimento { get; set; }
 
         public int ContatoID { get; set; }
@@ -44,16 +39,17 @@ namespace Dominio.Models
         {
             ValidaCPF();
 
-            if (string.IsNullOrWhiteSpace(Nome) || Nome.Length < 3)
+            if (string.IsNullOrWhiteSpace(Nome) || Nome.Length < 3 || Nome.Length > 255)
                 throw new ArgumentException("Nome inválido");
         }
 
         private void ValidaCPF()
         {
             var regex = new Regex("^[0-9]{11}$");
-            CPF = CPF.Replace("-", "").Replace(".", "");
 
-            if (!regex.IsMatch(CPF))
+            CPF = (CPF != null) ? CPF = CPF.Replace("-", "").Replace(".", "") : string.Empty;
+
+            if (CPF.Length != 11 || !regex.IsMatch(CPF))
                 throw new ArgumentException("CPF Inválido");
         }
         #endregion métodos
