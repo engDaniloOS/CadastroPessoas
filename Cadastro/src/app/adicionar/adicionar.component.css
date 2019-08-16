@@ -1,0 +1,11 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.container{
+    position: absolute;
+    left: 25%;
+    top: 10% 
+ }
+ 
+ .blocos{
+     display: inline-block;
+ }

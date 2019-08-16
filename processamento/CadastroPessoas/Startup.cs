@@ -15,6 +15,8 @@ namespace CadastroPessoas
 {
     public class Startup
     {
+        private readonly string corsName = "default";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -32,6 +34,15 @@ namespace CadastroPessoas
             services.AddDbContext<Contexto>(
                         option => option.UseSqlServer(ConfigureConnectionString()));
 
+            services.AddCors(op =>
+            {
+                op.AddPolicy(corsName, builder => {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                });
+            });
+
             services.AddTransient<IPessoaService, PessoaService>();
             services.AddTransient<IPessoaRepository, PessoaRepositorio>();
         }
@@ -44,6 +55,7 @@ namespace CadastroPessoas
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(corsName);
             app.UseMvc();
         }
     }

@@ -57,7 +57,7 @@ namespace CadastroPessoas.Dominio.Servicos
         {
             try
             {
-                if (pessoaRepo.Exists(pessoa.Id))
+                if (!pessoaRepo.Exists(pessoa.Id))
                     throw new ArgumentException(pessoaNaoCadastrada);
 
                 return pessoaRepo.Editar(pessoa);

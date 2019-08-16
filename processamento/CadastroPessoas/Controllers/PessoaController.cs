@@ -70,7 +70,8 @@ namespace CadastroPessoas.Controllers
         }
 
         [HttpDelete]
-        public ActionResult ExcluirPessoa([FromBody] int id)
+        [Route("{id}")]
+        public ActionResult ExcluirPessoa(int id)
         {
             var mensagem = string.Empty;
 

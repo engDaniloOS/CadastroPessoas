@@ -1,0 +1,51 @@
+<div>
+    <h4>
+      {{ title }}
+    </h4>
+</div>
+<div class="form-group col-md-7">
+  <label>Nome: </label>
+  <input class="form-control" type="text"  placeholder="Nome" [(ngModel)]="pessoa.nome"><br/>
+  
+  <label>CPF: </label>
+  <input class="form-control" type="text" placeholder="CPF" [(ngModel)]="pessoa.cpf"><br/>
+
+  <label>Data de Nascimento: </label>
+  <input class="form-control" type="date" placeholder="Data de nascimento" [(ngModel)]="pessoa.dataNascimento"><br/>
+
+  <label>E-mail: </label>
+  <input class="form-control" type="email" placeholder="E-mail" [(ngModel)]="contato.email"><br/>
+
+  <label>Celular: </label>
+  <input class="form-control" type="text" placeholder="Celular" [(ngModel)]="contato.celular"><br/>
+
+  <label>Telefone: </label>
+  <input class="form-control" type="text" placeholder="Telefone" [(ngModel)]="contato.telefone"><br/>
+
+  <label>CEP: </label>
+  <input class="form-control" type="text" placeholder="CEP" [(ngModel)]="endereco.cep"><br/>
+
+  <label>Logradouro: </label>
+  <input class="form-control" type="text" placeholder="Logradouro" [(ngModel)]="endereco.logradouro"><br/>
+
+  <label>Numero: </label>
+  <input class="form-control" type="number" placeholder="Numero" [(ngModel)]="endereco.numero"><br/>
+
+  <label>Complemento: </label>
+  <input class="form-control" type="text" placeholder="Complemento" [(ngModel)]="endereco.complemento"><br/>
+
+  <label>Bairro: </label>
+  <input class="form-control" type="text" placeholder="Bairro" [(ngModel)]="endereco.bairro"><br/>
+
+  <label>Cidade: </label>
+  <input class="form-control" type="text" placeholder="Cidade" [(ngModel)]="endereco.cidade"><br/>
+
+  <label>Estado: </label>
+  <input class="form-control" type="text" placeholder="Estado" [(ngModel)]="endereco.estado"><br/>
+
+  <label>Pais: </label>
+  <input class="form-control" type="text" placeholder="Pais" [(ngModel)]="endereco.pais"><br/>
+
+  <br/>
+  <button class="btn btn-primary btn-sm" (click)='doCadastrar()'>Cadastrar usuário</button>
+</div>
